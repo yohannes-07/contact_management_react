@@ -1,4 +1,3 @@
-// src/pages/AddContact.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createNewContact, Contact } from '../data';

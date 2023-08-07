@@ -1,4 +1,3 @@
-// src/ContactsContext.tsx
 import React, { createContext, useContext, useState } from 'react';
 import { Contact } from './data';
 

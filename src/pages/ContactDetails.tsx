@@ -1,4 +1,3 @@
-// src/pages/ContactDetails.tsx
 import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Contact, readContact, deleteContact } from '../data';

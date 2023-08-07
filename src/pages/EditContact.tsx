@@ -1,4 +1,3 @@
-// src/pages/EditContact.tsx
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Contact, readContact, editContact } from '../data';
@@ -30,7 +29,7 @@ const EditContact: React.FC = () => {
       if (prevFormData) {
         return { ...prevFormData, [name]: value };
       }
-      return null; // Handle the case when formData is null
+      return null; 
     });
   };
   const handleSubmit = (event: React.FormEvent) => {

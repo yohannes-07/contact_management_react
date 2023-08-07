@@ -1,4 +1,3 @@
-/* Home.css */
 .body{
     display: flex;
     flex-direction: column;
@@ -40,7 +39,7 @@ ul {
     text-decoration: underline;
   }
   
-  /* src/pages/ContactDetails.css */
+
 .contact-details {
     padding: 20px;
     border: 1px solid #ccc;
@@ -80,8 +79,7 @@ ul {
   .delete-button:hover {
     background-color: #0056b3;
   }
-  
-  /* src/pages/AddContact.css */
+ 
 .add-contact-form {
   max-width: 400px;
   margin: 0 auto;
@@ -125,7 +123,7 @@ ul {
   background-color: #0056b3;
 }
 
-/* src/pages/ContactDetails.css */
+
 .contact-details {
   max-width: 400px;
   margin: 0 auto;
@@ -171,7 +169,7 @@ ul {
   background-color: #c82333;
 }
 
-/* src/pages/EditContact.css */
+
 .edit-contact-form {
   max-width: 400px;
   margin: 0 auto;
