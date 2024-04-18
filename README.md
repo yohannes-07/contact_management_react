@@ -10,9 +10,13 @@ Notifications API lets you connect ICONIK, DATACORE, and OBJECT MATRIX with your
 Notifications API is a :
 
 - Establishes connections to ICONIK, DATACORE, and OBJECT MATRIX .
-- ###ICONIK
-  - Allocates chosen processor (eg., Facial Recognition) and passes.
-  - dksg
+- ### ICONIK
+  - When a new video gets uploaded, ICONIK sends message to SQS queue(from Amazon).
+  - getQueueMessage gets triggered every 1 minute to check if there are messages in SQS.
+  - If there's a message in SQS, it calls webhook to retrieve an Asset from ICONIC Collections.
+  - Allocates chosen processor (eg., Facial Recognition) and passes specifc config data for the chosen processor.
+  - Processes the Asset(eg., does  Facial Recognition) and update the process and the Asset status.
+  - Perform cleanup operations: resource releasing
 - 
 - Combine blocks and postprocess complete text (heuristics, [pdf_postprocessor](https://huggingface.co/vikp/pdf_postprocessor_t5))
 
