@@ -10,8 +10,9 @@ Notifications API lets you connect ICONIK, DATACORE, and OBJECT MATRIX with your
 Notifications API is a :
 
 - Establishes connections to ICONIK, DATACORE, and OBJECT MATRIX .
-- ICONIK
--- Allocates chosen processor (eg., Facial Recognition) and passes.
+- ###ICONIK
+  - Allocates chosen processor (eg., Facial Recognition) and passes.
+  - dksg
 - 
 - Combine blocks and postprocess complete text (heuristics, [pdf_postprocessor](https://huggingface.co/vikp/pdf_postprocessor_t5))
 
