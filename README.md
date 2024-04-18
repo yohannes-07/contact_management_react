@@ -1,21 +1,18 @@
-# Notification API
+# Notifications API
 
-Marker converts PDF, EPUB, and MOBI to markdown.  It's 10x faster than nougat, more accurate on most documents, and has low hallucination risk.
-
-- Support for a range of PDF documents (optimized for books and scientific papers)
-- Removes headers/footers/other artifacts
-- Converts most equations to latex
-- Formats code blocks and tables
-- Support for multiple languages (although most testing is done in English).  See `settings.py` for a language list, or to add your own.
-- Works on GPU, CPU, or MPS
-
+Notifications API lets you connect ICONIK, DATACORE, and OBJECT MATRIX with your workflow.
+- Choose from avialable processors such as Facial Recognition to automate your media files processing.
+- Support for multiple buckets for a specific processor 
+- Support for webhooks which enables real-time updates to the workflow.
+  
 ## How it works
 
-Marker is a pipeline of deep learning models:
+Notifications API is a :
 
-- Extract text, OCR if necessary (heuristics, tesseract)
-- Detect page layout ([layout segmenter](https://huggingface.co/vikp/layout_segmenter), [column detector](https://huggingface.co/vikp/column_detector))
-- Clean and format each block (heuristics, [texify](https://huggingface.co/vikp/texify))
+- Establishes connections to ICONIK, DATACORE, and OBJECT MATRIX .
+- ICONIK
+-- Allocates chosen processor (eg., Facial Recognition) and passes.
+- 
 - Combine blocks and postprocess complete text (heuristics, [pdf_postprocessor](https://huggingface.co/vikp/pdf_postprocessor_t5))
 
 Relying on autoregressive forward passes to generate text is slow and prone to hallucination/repetition.  From the nougat paper: `We observed [repetition] in 1.5% of pages in the test set, but the frequency increases for out-of-domain documents.`  In my anecdotal testing, repetitions happen on 5%+ of out-of-domain (non-arXiv) pages.  
