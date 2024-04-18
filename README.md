@@ -1,4 +1,4 @@
-# Marker
+# Notification API
 
 Marker converts PDF, EPUB, and MOBI to markdown.  It's 10x faster than nougat, more accurate on most documents, and has low hallucination risk.
 
