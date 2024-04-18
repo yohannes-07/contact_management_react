@@ -17,12 +17,8 @@ Notifications API is a :
   - Allocates chosen processor (eg., Facial Recognition) and passes specifc config data for the chosen processor.
   - Processes the Asset(eg., does  Facial Recognition) and update the process and the Asset status.
   - Perform cleanup operations: resource releasing
-- 
-- Combine blocks and postprocess complete text (heuristics, [pdf_postprocessor](https://huggingface.co/vikp/pdf_postprocessor_t5))
-
-Relying on autoregressive forward passes to generate text is slow and prone to hallucination/repetition.  From the nougat paper: `We observed [repetition] in 1.5% of pages in the test set, but the frequency increases for out-of-domain documents.`  In my anecdotal testing, repetitions happen on 5%+ of out-of-domain (non-arXiv) pages.  
-
-Nougat is an amazing model, but I wanted a faster and more general purpose solution. Marker is 10x faster and has low hallucination risk because it only passes equation blocks through an LLM forward pass.
+- ### DATACORE
+  - 
 
 ## Examples
 
