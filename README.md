@@ -13,13 +13,15 @@ Notifications API is a :
 - ### ICONIK
   - When a new video gets uploaded, ICONIK sends message to SQS queue(from Amazon).
   - getQueueMessage gets triggered every 1 minute to check if there are messages in SQS.
-  - If there's a message in SQS, it calls webhook to retrieve an Asset from ICONIC Collections.
+  - If there's a message in SQS, it retrieves an Asset from ICONIC Collections and enqueue the Asset to be processed.
   - Allocates chosen processor (eg., Facial Recognition) and passes specifc config data for the chosen processor.
   - Processes the Asset(eg., does  Facial Recognition) and update the process and the Asset status.
-  - Perform cleanup operations: resource releasing
+  - Perform cleanup operations: resource releasing.
 - ### DATACORE
+  - It retrieves all bucket items with a status of "Processing" and "Pending" from the database.
+  - For each bucket item, if its status is "Processing", it updates its status to "Pending" and enqueue the item to be processed.
+  - It retrieves all active S3 buckets and shedule them to be processed with `add_scheduler` function.
   - 
-
 ## Examples
 
 | PDF                                                                   | Type        | Marker                                                                                                 | Nougat                                                                                                 |
