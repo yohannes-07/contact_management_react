@@ -2,12 +2,12 @@
 
 Notifications API lets you connect ICONIK, DATACORE, and OBJECT MATRIX with your workflow.
 - Choose from avialable processors such as Facial Recognition to automate your media files processing.
-- Support for multiple buckets for a specific processor 
-- Support for webhooks which enables real-time updates to the workflow.
+- Support for multiple buckets processing
+- Support for webhooks for real-time updates to the workflows.
   
 ## How it works
 
-Notifications API is a :
+Notifications API is an independent module which you can integrate your workflows for automated updates:
 
 - Establishes connections to ICONIK, DATACORE, and OBJECT MATRIX .
 - ### ICONIK
