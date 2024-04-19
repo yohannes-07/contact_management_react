@@ -43,23 +43,23 @@ Notifications API is an independent module which you can integrate your workflow
 
 
 # Installation
-    ```bash
-    git clone git@github.com:StartupAgile-WIN/NotificationAPI.git
-    ```
-    ```bash
-    cd NotificationAPI
-    ```
+  ```bash
+  git clone git@github.com:StartupAgile-WIN/NotificationAPI.git
+  ```
+  ```bash
+  cd NotificationAPI
+  ```
   #### Linux and MAC
-    ```bash
-    python3 -m venv venv
-    ```
-    ```bash
-    source venv/bin/activate
-    ```
-    ```bash
-    pip install -r requirements.txt
-    ```
-  #### Windows
+  ```bash
+  python3 -m venv venv
+  ```
+  ```bash
+  source venv/bin/activate
+  ```
+  ```bash
+  pip install -r requirements.txt
+  ```
+#### WINDOWS
   ```bash
   python -m venv venv
   ```
