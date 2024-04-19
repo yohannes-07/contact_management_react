@@ -43,11 +43,11 @@ Notifications API is an independent module which you can integrate your workflow
 
 
 # Installation
-  ```
+  ```bash
   pip install -r requirements.txt
   ```
-  ```
-  python main.py
+  ```bash
+    python main.py
   ```
 
  # Usage 
@@ -83,18 +83,7 @@ This Portion provides details for each environment variable used in the `.env` f
 - `DATABASE_PASSWORD`: The password for the database user. This should be kept secure and not shared.
 - `DATABASE_NAME`: The name of the database to which the application should connect.
 
-
-#### 1.Install Dependencies for notifications API
-```bash
-  pip install -r requirements.txt
-```
-
-#### 1.Run main.py script on the home directory
-```bash
-  python main.py
-```
-
-# copy the link below to configure the api rule.
+#### copy the link below to configure the api rule.
 ```bash 
 http://${host}:${port}/docs
 ```
