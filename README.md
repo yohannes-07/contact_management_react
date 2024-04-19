@@ -20,7 +20,7 @@ Notifications API is a :
 - ### DATACORE
   - It retrieves all bucket items with a status of "Processing" and "Pending" from the database.
   - For each bucket item, if its status is "Processing", it updates its status to "Pending" and enqueue the item to be processed.
-  - It retrieves all active S3 buckets and shedule them by creating bucket item with status of "Processing" to be processed with `add_scheduler` function.
+  - It retrieves all active S3 buckets and shedule them by creating bucket item with status of "Pending" to be processed with `add_scheduler` function.
   - 
 ## Examples
 
