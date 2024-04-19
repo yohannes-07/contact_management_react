@@ -9,7 +9,7 @@ Notifications API lets you connect ICONIK, DATACORE, and OBJECT MATRIX with your
 
 Notifications API is an independent module which you can integrate your workflows for automated updates:
 
-- Establishes connections to ICONIK, DATACORE, and OBJECT MATRIX .
+- Establishes connections to ` ICONIK, DATACORE, and OBJECT MATRIX `.
 - ### ICONIK
   - When a new video gets uploaded, ICONIK sends message to SQS queue(from Amazon).
   - `getQueueMessage` gets triggered every 1 minute to check if there are messages in SQS.
@@ -43,11 +43,34 @@ Notifications API is an independent module which you can integrate your workflow
 
 
 # Installation
+    ```bash
+    git clone git@github.com:StartupAgile-WIN/NotificationAPI.git
+    ```
+    ```bash
+    cd NotificationAPI
+    ```
+  #### Linux and MAC
+    ```bash
+    python3 -m venv venv
+    ```
+    ```bash
+    source venv/bin/activate
+    ```
+    ```bash
+    pip install -r requirements.txt
+    ```
+  #### Windows
+  ```bash
+  python -m venv venv
+  ```
+  ```bash
+  source venv\Scripts\activate
+  ```
   ```bash
   pip install -r requirements.txt
   ```
   ```bash
-    python main.py
+  python main.py
   ```
 
  # Usage 
