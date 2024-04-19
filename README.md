@@ -106,10 +106,64 @@ This Portion provides details for each environment variable used in the `.env` f
 - `DATABASE_PASSWORD`: The password for the database user. This should be kept secure and not shared.
 - `DATABASE_NAME`: The name of the database to which the application should connect.
 
-#### copy the link below to configure the api rule.
+### copy the link below to configure the api rule.
 ```bash 
 http://${host}:${port}/docs
 ```
+## Automated Workflow Configuration
+
+To automate your workflow, you can configure the `config.json` file. Below is an example of the configuration options:
+
+```json
+{
+  "system": ["iconik", "datacore"],
+  "system_endpoint": "https://2fcgx73pvkbljznby7bptqeegy0rredo.lambda-url.us-east-2.on.aws/",
+  "iconik_url": "https://preview.iconik.cloud",
+  "datacore_endpoint": "https://win-demo.cloud.datacore.com",
+  "sqs_queue_url": "https://sqs.us-east-2.amazonaws.com/957693358930/Webhook-Requeue",
+  "aws_region": "us-east-2",
+  "single_webhook": true,
+  "webhook_name": "Notification API Webhook",
+  "processor": "FacialRecognition",
+  "temp_folder": "temp_files",
+  "no_of_threads": 1,
+  "video_file_types": [
+    "video/mp4",
+    "video/x-msvideo",
+    "video/quicktime",
+    "video/x-matroska",
+    "video/x-ms-wmv",
+    "video/x-flv",
+    "video/webm",
+    "video/mpeg",
+    "video/mpeg",
+    "video/x-m4v",
+    "video/3gpp",
+    "video/3gpp2",
+    "video/mpeg",
+    "video/ogg"
+  ],
+  "audio_file_types": [],
+  "image_file_types": []
+}
+```
+- **Processor**: Choose the desired processor for your workflow. Options include "FacialRecognition", "AutoTranslation", and "ObjectDetection".
+
+- **Number of Threads**: Increasing the number of threads to improve processing speed.
+  
+- **System**: Define the systems your application interacts with. Options include "iconik" and "datacore".
+
+- **Single Webhook**: Set to true if you want to use a single webhook.
+
+- **Webhook Name**: The name of the webhook.
+
+- **Temporary Folder**: The folder where temporary files are stored.
+
+- **Video File Types**: Specify the supported video file types.
+
+- **Audio File Types**: Specify the supported audio file types.
+
+- **Image File Types**: Specify the supported image file types.
 
 
 
