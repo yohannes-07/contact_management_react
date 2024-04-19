@@ -43,9 +43,9 @@ Notifications API is an independent module which you can integrate your workflow
 
 
 # Installation
-##
-<tab><tab>code/pip install -r requirements.txt
-
+  ```
+  pip install -r requirements.txt
+  ```
 
 # Usage
 
