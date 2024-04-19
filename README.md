@@ -41,62 +41,11 @@ Notifications API is an independent module which you can integrate your workflow
 | [Multi-column CNN](https://arxiv.org/pdf/1804.07821.pdf)              | arXiv paper | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/marker/multicolcnn.md)         | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/nougat/multicolcnn.md)         |
 
 
-## Performance
-
-![Benchmark overall](data/images/overall.png)
-
-The above results are with marker and nougat setup so they each take ~3GB of VRAM on an A6000.
-
-See [below](#benchmarks) for detailed speed and accuracy benchmarks, and instructions on how to run your own benchmarks.
-
-# Community
-
-[Discord](https://discord.gg//KuZwXNGnfH) is where we discuss future development.
-
-# Limitations
-
-PDF is a tricky format, so marker will not always work perfectly.  Here are some known limitations that are on the roadmap to address:
-
-- Marker will not convert 100% of equations to LaTeX.  This is because it has to first detect equations, then convert them.
-- Whitespace and indentations are not always respected.
-- Not all lines/spans will be joined properly.
-- Languages similar to English (Spanish, French, German, Russian, etc) have the best support. There is provisional support for Chinese, Japanese, Korean, and Hindi, but it may not work as well.  You can add other languages by adding them to the `TESSERACT_LANGUAGES` and `SPELLCHECK_LANGUAGES` settings in `settings.py`.
-- This works best on digital PDFs that won't require a lot of OCR.  It's optimized for speed, and limited OCR is used to fix errors.
 
 # Installation
+##
+<tab><tab>code/pip install -r requirements.txt
 
-This has been tested on Mac and Linux (Ubuntu and Debian).  You'll need python 3.9+ and [poetry](https://python-poetry.org/docs/#installing-with-the-official-installer).
-
-First, clone the repo:
-
-- `git clone https://github.com/VikParuchuri/marker.git`
-- `cd marker`
-
-## Linux
-
-- Install system requirements
-  - Optional: Install tesseract 5 by following [these instructions](https://notesalexp.org/tesseract-ocr/html/) or running `scripts/install/tesseract_5_install.sh`.
-  - Install ghostscript > 9.55 by following [these instructions](https://ghostscript.readthedocs.io/en/latest/Install.html) or running `scripts/install/ghostscript_install.sh`.
-  - Install other requirements with `cat scripts/install/apt-requirements.txt | xargs sudo apt-get install -y`
-- Set the tesseract data folder path
-  - Find the tesseract data folder `tessdata` with `find / -name tessdata`.  Make sure to use the one corresponding to the latest tesseract version if you have multiple.
-  - Create a `local.env` file in the root `marker` folder with `TESSDATA_PREFIX=/path/to/tessdata` inside it
-- Install python requirements
-  - `poetry install`
-  - `poetry shell` to activate your poetry venv
-- Update pytorch since poetry doesn't play nicely with it
-  - GPU only: run `pip install torch` to install other torch dependencies.
-  - CPU only: Uninstall torch with `poetry remove torch`, then follow the [CPU install](https://pytorch.org/get-started/locally/) instructions.
-
-## Mac
-
-- Install system requirements from `scripts/install/brew-requirements.txt`
-- Set the tesseract data folder path
-  - Find the tesseract data folder `tessdata` with `brew list tesseract`
-  - Create a `local.env` file in the root `marker` folder with `TESSDATA_PREFIX=/path/to/tessdata` inside it
-- Install python requirements
-  - `poetry install`
-  - `poetry shell` to activate your poetry venv
 
 # Usage
 
@@ -204,26 +153,3 @@ This will benchmark marker against other text extraction methods.  It sets up ba
 
 Omit `--nougat` to exclude nougat from the benchmark.  I don't recommend running nougat on CPU, since it is very slow.
 
-# Commercial usage
-
-Due to the licensing of the underlying models like layoutlmv3 and nougat, this is only suitable for noncommercial usage.  
-
-I'm building a version that can be used commercially, by stripping out the dependencies below. If you would like to get early access, email me at marker@vikas.sh.
-
-Here are the non-commercial/restrictive dependencies:
-
-- LayoutLMv3: CC BY-NC-SA 4.0 .  [Source](https://huggingface.co/microsoft/layoutlmv3-base)
-- PyMuPDF - GPL . [Source](https://pymupdf.readthedocs.io/en/latest/about.html#license-and-copyright)
-
-Other dependencies/datasets are openly licensed (doclaynet, byt5), or used in a way that is compatible with commercial usage (ghostscript).
-
-# Thanks
-
-This work would not have been possible without amazing open source models and datasets, including (but not limited to):
-
-- Nougat from Meta
-- Layoutlmv3 from Microsoft
-- DocLayNet from IBM
-- ByT5 from Google
-
-Thank you to the authors of these models and datasets for making them available to the community!
