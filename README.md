@@ -18,10 +18,19 @@ Notifications API is a :
   - Processes the Asset(eg., does  Facial Recognition) and update the process and the Asset status.
   - Perform cleanup operations: resource releasing.
 - ### DATACORE
-  - It retrieves all bucket items with a status of "Processing" and "Pending" from the database.
-  - For each bucket item, if its status is "Processing", it updates its status to "Pending" and enqueue the item to be processed.
-  - It retrieves all active S3 buckets and shedule them by creating bucket item with status of "Pending" to be processed with `add_scheduler` function.
-  - 
+  - It retrieves all BucketItems with a status of "Processing" and "Pending" from the database.
+  - For each BucketItem, if its status is "Processing", it updates its status to "Pending" and enqueue the item to be processed.
+  - It retrieves all active S3Buckets and shedule them by creating BucketItem with status of "Pending" to be processed with `add_scheduler` function.
+  - Allocates chosen processor (eg., Facial Recognition) and passes specifc config data for the chosen processor.
+  - Processes the BucketItem(eg., does  Facial Recognition) and update the process and the BucketItem status.
+  - Perform cleanup operations: resource releasing.
+- ### OBJECT MATRIX
+  - It retrieves all OMBucketItems with a status of "Processing" and "Pending" from the database.
+  - For each OMBucketItem, if its status is "Processing", it updates its status to "Pending" and enqueue the item to be processed.
+  - It retrieves all active OMS3Buckets and shedule them by creating BucketItem with status of "Pending" to be processed with `add_scheduler` function.
+  - Allocates chosen processor (eg., Facial Recognition) and passes specifc config data for the chosen processor.
+  - Processes the OMBucketItem(eg., does  Facial Recognition) and update the process and the OMBucketItem status.
+  - Perform cleanup operations: resource releasing.
 ## Examples
 
 | PDF                                                                   | Type        | Marker                                                                                                 | Nougat                                                                                                 |
