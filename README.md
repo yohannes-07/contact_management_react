@@ -12,7 +12,7 @@ Notifications API is an independent module which you can integrate your workflow
 - Establishes connections to ` ICONIK `, ` DATACORE `, and ` OBJECT MATRIX `.
 - ### ICONIK
   - When a new video gets uploaded, ICONIK sends message to SQS queue(from Amazon).
-  - `getQueueMessage` gets triggered every 1 minute to check if there are messages in SQS.
+  - ` getQueueMessage ` gets triggered every 1 minute to check if there are messages in SQS.
   - If there's a message in SQS, it retrieves an Asset from ICONIC Collections and enqueue the Asset to be processed.
   - Allocates chosen processor (eg., Facial Recognition) and passes specifc config data for the chosen processor.
   - Processes the Asset(eg., does  Facial Recognition) and update the process and the Asset status.
@@ -20,14 +20,14 @@ Notifications API is an independent module which you can integrate your workflow
 - ### DATACORE
   - It retrieves all BucketItems with a status of "Processing" and "Pending" from the database.
   - For each BucketItem, if its status is "Processing", it updates its status to "Pending" and enqueue the item to be processed.
-  - It retrieves all active S3Buckets and shedule them by creating BucketItem with status of "Pending" to be processed with `add_scheduler` function.
+  - It retrieves all active S3Buckets and shedule them by creating BucketItem with status of "Pending" to be processed with ` add_scheduler ` function.
   - Allocates chosen processor (eg., Facial Recognition) and passes specifc config data for the chosen processor.
   - Processes the BucketItem(eg., does  Facial Recognition) and update the process and the BucketItem status.
   - Perform cleanup operations: resource releasing.
 - ### OBJECT MATRIX
   - It retrieves all OMBucketItems with a status of "Processing" and "Pending" from the database.
   - For each OMBucketItem, if its status is "Processing", it updates its status to "Pending" and enqueue the item to be processed.
-  - It retrieves all active OMS3Buckets and shedule them by creating BucketItem with status of "Pending" to be processed with `add_scheduler` function.
+  - It retrieves all active OMS3Buckets and shedule them by creating BucketItem with status of "Pending" to be processed with ` add_scheduler ` function.
   - Allocates chosen processor (eg., Facial Recognition) and passes specifc config data for the chosen processor.
   - Processes the OMBucketItem(eg., does  Facial Recognition) and update the process and the OMBucketItem status.
   - Perform cleanup operations: resource releasing.
@@ -49,17 +49,17 @@ Notifications API is an independent module which you can integrate your workflow
   ```bash
   cd NotificationAPI
   ```
-  #### Linux and MAC
-  ```bash
-  python3 -m venv venv
-  ```
-  ```bash
-  source venv/bin/activate
-  ```
-  ```bash
-  pip install -r requirements.txt
-  ```
-#### WINDOWS
+   #### Linux and MAC
+   ```bash
+   python3 -m venv venv
+   ```
+   ```bash
+   source venv/bin/activate
+   ```
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+  #### WINDOWS
   ```bash
   python -m venv venv
   ```
@@ -69,9 +69,9 @@ Notifications API is an independent module which you can integrate your workflow
   ```bash
   pip install -r requirements.txt
   ```
-  ```bash
+```bash
   python main.py
-  ```
+```
 
  # Usage 
  
