@@ -60,7 +60,7 @@ Notifications API is an independent module which you can integrate your workflow
    pip3 install -r requirements.txt
    ```
    ```bash
-    python3 main.py
+   python3 main.py
    ```
   #### WINDOWS
   ```bash
@@ -73,7 +73,7 @@ Notifications API is an independent module which you can integrate your workflow
   pip install -r requirements.txt
   ```
   ```bash
-    python main.py
+  python main.py
   ```
 
  # Usage 
@@ -150,7 +150,7 @@ To automate your workflow, you can configure the `config.json` file. Below is an
   "image_file_types": []
 }
 ```
-- **Processor**: Choose the desired processor for your workflow. Options include "FacialRecognition", "AutoTranslation", and "ObjectDetection".
+- **Processor**: Choose the desired processor for your workflow. Options include `FacialRecognition`, `AutoTranslation`, and `ObjectDetection`.
 
 - **Number of Threads**: Increasing the number of threads to improve processing speed.
   
