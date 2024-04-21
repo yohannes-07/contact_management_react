@@ -59,6 +59,9 @@ Notifications API is an independent module which you can integrate your workflow
    ```bash
    pip3 install -r requirements.txt
    ```
+   ```bash
+    python3 main.py
+   ```
   #### WINDOWS
   ```bash
   python -m venv venv
@@ -69,9 +72,9 @@ Notifications API is an independent module which you can integrate your workflow
   ```bash
   pip install -r requirements.txt
   ```
-```bash
-  python main.py
-```
+  ```bash
+    python main.py
+  ```
 
  # Usage 
  
