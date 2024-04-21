@@ -2,14 +2,14 @@
 
 Notifications API lets you connect ICONIK, DATACORE, and OBJECT MATRIX with your workflow.
 - Choose from avialable processors such as Facial Recognition to automate your media files processing.
-- Support for multiple buckets processing
-- Support for webhooks for real-time updates to the workflows.
+- Support for multiple buckets processing.
+- Support for webhooks for real-time updates.
   
 ## How it works
 
 Notifications API is an independent module which you can integrate your workflows for automated updates:
 
-- Establishes connections to ` ICONIK, DATACORE, and OBJECT MATRIX `.
+- Establishes connections to ` ICONIK `, ` DATACORE `, and ` OBJECT MATRIX `.
 - ### ICONIK
   - When a new video gets uploaded, ICONIK sends message to SQS queue(from Amazon).
   - `getQueueMessage` gets triggered every 1 minute to check if there are messages in SQS.
@@ -151,20 +151,10 @@ To automate your workflow, you can configure the `config.json` file. Below is an
 
 - **Number of Threads**: Increasing the number of threads to improve processing speed.
   
-- **System**: Define the systems your application interacts with. Options include "iconik" and "datacore".
-
 - **Single Webhook**: Set to true if you want to use a single webhook.
 
 - **Webhook Name**: The name of the webhook.
 
 - **Temporary Folder**: The folder where temporary files are stored.
-
-- **Video File Types**: Specify the supported video file types.
-
-- **Audio File Types**: Specify the supported audio file types.
-
-- **Image File Types**: Specify the supported image file types.
-
-
 
 
