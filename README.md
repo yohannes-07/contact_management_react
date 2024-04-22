@@ -187,8 +187,6 @@ These endpoints allows you to interact with your chosen processor and media stor
   ```
 
 
-Parameters
-Starts a new subscription or updates an existing one. Can (and should) also be used to complete a trial period. `official client only`
 
 **Parameters**
 
@@ -203,48 +201,86 @@ Starts a new subscription or updates an existing one. Can (and should) also be u
 |  `last_time` | optional | string  | When was the bucket last time processed? | 
 |     `job_id` | optional | bool    | Unique identifier for the task | 
 
-**Response**
-
-```
-{
-  "detail": [
-    {
-      "loc": [
-        "string",
-        0
-      ],
-      "msg": "string",
-      "type": "string"
-    }
-  ]
-}
-```
+**Responses**
+  ***Success***
+      ```
+        {"message": f"S3 Bucket added", 'data': s3_bucket}
+      }
+      ```
+  ***Errors***
+      ```
+       {
+        "detail": [
+          {
+            "loc": [
+              "string",
+              0
+            ],
+            "msg": "Invalid cron expression",
+            "type": "string"
+            }
+          ]
+        }
+      }
+      ```
 ___
 
-### POST /1/billing/cancel-subscription.json
-Cancels an existing subscription. Will cancel any existing and trialing subscriptions. `official client only`
+### POST /datacore/s3-bucket  Add S3 Bucket
+  ```
+      {
+        "bucket": "mybucket",
+        "path": "datacore/mybucket",
+        "status": "Active",
+        "cron": ""0 0 * * *"",
+        "config": {
+                    'diarization': 'demo_1',
+                    'keep_original_audio': False,
+                    'model': 'base',
+                    'language': None,
+                    'target_language': 'english',
+                    'translation_level': 'l1',
+                    'tts': 'open-voice'
+                  },
+        "first_time": true,
+        "last_scan": "",
+        "job_id": "s3-job-123"
+      }
+  ```
+
+
 
 **Parameters**
 
-|          Name | Required |  Type   | Description                                                                                                                                                         |
+|          Name | Required |   Type  | Description                                                                                                                                                         |
 | -------------:|:--------:|:-------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     `product` | required | string  | The product for which to perform the action. <br/><br/> Supported values: `publish` or `analyze`.                                                                   |
-| `atPeriodEnd` | optional | boolean | Default is `true`. Specifies if the subscription should be deleted now or when the subscription is due to end. <br/><br/> *Common use case is to pass `true` since we want to let the customers use the full period they paid for.* <br/>*Should only pass `false` (i.e. cancel the subscription right now) when a Stripe customer switches to iOS/Android.)* |
-|    `cta` | optional | string  | Can be used for tracking purpose - [Read more](https://github.com/bufferapp/README/tree/master/runbooks/data-tracking)          |
+|     `bucket` | required | string  | The name of the bucket you want to process.                                                                   |
+|     `path`   | required | string  | The path where the  bucket is stored inside datacore.  |
+|     `status` | optional | string  | Status of the bucket object. Options include "Pending", "Processing"|
+|     `cron`   | optional | string  | Interval, specifc date... you want to trigger to check the datacore |
+|     `config` | optional | dict    | Processor configurations you want to pass. Options include "AutoTranslation", "FacialRecognition", "ObjectDetection"   |
+| `first_time` | optional | bool    | Is the bucket being processed for the first time? | 
+|  `last_time` | optional | string  | When was the bucket last time processed? | 
+|     `job_id` | optional | bool    | Unique identifier for the task | 
 
-**Response**
-
-```
-{
-    "success": true
-}
-
-or any implemented error from https://buffer.com/developers/api/errors
-
-{
-    "code": 1000,
-    "error": "An error message"
-}
-```
-
-
+**Responses**
+  ***Success***
+      ```
+        {"message": f"S3 Bucket added", 'data': s3_bucket}
+      }
+      ```
+  ***Errors***
+      ```
+       {
+        "detail": [
+          {
+            "loc": [
+              "string",
+              0
+            ],
+            "msg": "Invalid cron expression",
+            "type": "string"
+            }
+          ]
+        }
+      }
+      ```
