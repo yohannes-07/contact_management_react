@@ -202,27 +202,29 @@ These endpoints allows you to interact with your chosen processor and media stor
 |     `job_id` | optional | bool    | Unique identifier for the task | 
 
 **Responses**
+
   ***Success***
-      ```
-        {"message": f"S3 Bucket added", 'data': s3_bucket}
-      }
-      ```
+  ```
+    {"message": f"S3 Bucket added", 'data': s3_bucket}
+  ```
+
   ***Errors***
-      ```
-       {
-        "detail": [
-          {
-            "loc": [
-              "string",
-              0
-            ],
-            "msg": "Invalid cron expression",
-            "type": "string"
-            }
-          ]
+  ```
+   {
+    "detail": [
+      {
+        "loc": [
+          "string",
+          0
+        ],
+        "msg": "Invalid cron expression",
+        "type": "string"
         }
-      }
-      ```
+      ]
+    }
+  }
+  ```
+
 ___
 
 ### POST /datacore/s3-bucket  Add S3 Bucket
@@ -263,11 +265,12 @@ ___
 |     `job_id` | optional | bool    | Unique identifier of the task | 
 
 **Responses**
+
   ***Success***
-```
-  {"message": f"S3 Bucket added", 'data': s3_bucket}
-}
-```
+  ```
+    {"message": f"S3 Bucket added", 'data': s3_bucket}
+  ```
+
   ***Errors***
   ```
    {
