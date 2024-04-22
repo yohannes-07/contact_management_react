@@ -227,11 +227,60 @@ These endpoints allows you to interact with your chosen processor and media stor
 
 ___
 
-### POST /datacore/s3-bucket  Add S3 Bucket
+### POST /iconik/collection  Add Collection
+
+  ```
+    {
+      "collection_id": "iconic/collections/myCollection",
+      "status": "Active",
+      "config": {
+
+                },
+      "first_time": true
+    }
+  ```
+
+
+
+**Parameters**
+
+|          Name | Required |   Type  | Description                                                                                                                                                         |
+| -------------:|:--------:|:-------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `collecton_id` | required | string  | The name of the bucket you want to process.                                                                   |
+|     `status` | optional | string  | Status of the bucket object. Options include "Pending", "Processing"|
+|     `config` | optional | dict    | Processor configurations you want to pass. Options include "AutoTranslation", "FacialRecognition", "ObjectDetection"   |
+| `first_time` | optional | bool    | Is the bucket being processed for the first time? | 
+
+**Responses**
+
+  ***Success***
+  ```
+    {"message": f"Collection added", 'data': collection}
+  ```
+
+  ***Errors***
+  ```
+   {
+    "detail": [
+      {
+        "loc": [
+          "string",
+          0
+        ],
+        "msg": "Invalid cron expression",
+        "type": "string"
+        }
+      ]
+    }
+  }
+  ```
+___
+
+### POST /object-matrix/s3-bucket  Add S3 Bucket
   ```
       {
-        "bucket": "mybucket",
-        "path": "datacore/mybucket",
+        "bucket": "myOMbucket",
+        "path": "objectMatrix/mybucket",
         "status": "Active",
         "cron": ""0 0 * * *"",
         "config": {
@@ -258,17 +307,17 @@ ___
 |     `bucket` | required | string  | The name of the bucket you want to process.                                                                   |
 |     `path`   | required | string  | The path where the  bucket is stored inside datacore.  |
 |     `status` | optional | string  | Status of the bucket object. Options include "Pending", "Processing"|
-|     `cron`   | optional | string  | Interval, specifc date... you want to trigger to scan buckets from Datacore  |
+|     `cron`   | optional | string  | Interval, specifc date... you want to trigger to check the datacore |
 |     `config` | optional | dict    | Processor configurations you want to pass. Options include "AutoTranslation", "FacialRecognition", "ObjectDetection"   |
 | `first_time` | optional | bool    | Is the bucket being processed for the first time? | 
 |  `last_time` | optional | string  | When was the bucket last time processed? | 
-|     `job_id` | optional | bool    | Unique identifier of the task | 
+|     `job_id` | optional | bool    | Unique identifier for the task | 
 
 **Responses**
 
   ***Success***
   ```
-    {"message": f"S3 Bucket added", 'data': s3_bucket}
+    {"message": f"S3 OMBucket added", 'data': s3_bucket}
   ```
 
   ***Errors***
@@ -287,3 +336,4 @@ ___
     }
   }
   ```
+
