@@ -161,3 +161,63 @@ To automate your workflow, you can configure the `config.json` file. Below is an
 - **Temporary Folder**: The folder where temporary files are stored.
 
 
+# API ENDPOINTS
+These endpoints allows you to interact with your chosen processor and media storage company.
+
+### POST /1/billing/start-or-update-subscription.json
+Starts a new subscription or updates an existing one. Can (and should) also be used to complete a trial period. `official client only`
+
+**Parameters**
+
+|          Name | Required |   Type  | Description                                                                                                                                                         |
+| -------------:|:--------:|:-------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     `product` | required | string  | The product for which to perform the action. <br/><br/> Supported values: `publish` or `analyze`.                                                                   |
+|        `plan` | required | string  | The plan for which to start a subscription. <br/><br/> Supported values for Publish: `pro`, `small`, `business`, `agency`.  <br/>Supported values for Analyze: `early-access-10`, `early-access-25`, `early-access-50`, `early-access-100`. |
+| `stripeToken` | optional | string | Is `required` only the first time when the Stripe customer has no registered credit card. <br/><br/>Stripe tokens are usually generated on the frontend: see [Stripe doc](https://stripe.com/docs/stripe-js/elements/quickstart#create-token) and as an example [Add credit card form Buffer component](https://github.com/bufferapp/buffer-web/blob/master/app/webroot/js/creditCard/components/addCreditCardForm.jsx).<br/><br/>*Stripe will error if we start/update a subscription for a customer who has no credit card: only trials can be started without a credit card.*  <br/> *Please use [/1/billing/start-trial.json](#post-1billingstart-trialjson) to start a trial.*|
+|       `cycle` | optional | string | Default is `null`. <br/><br/>If value is null, relies on the product hook logic to define the cycle. <br/><br/> Support values: `null`, `month` or `year`          |
+|    `quantity` | optional | integer  | Default is `1`.  <br/><br/>This value (either default or passed) will always override the current subscription quantity value.         |
+|    `cta` | optional | string  | Can be used for tracking purpose - [Read more](https://github.com/bufferapp/README/tree/master/runbooks/data-tracking)          |
+
+**Response**
+
+```
+{
+    "success": true
+}
+
+or any implemented error from https://buffer.com/developers/api/errors
+
+{
+    "code": 1000,
+    "error": "An error message"
+}
+```
+___
+
+### POST /1/billing/cancel-subscription.json
+Cancels an existing subscription. Will cancel any existing and trialing subscriptions. `official client only`
+
+**Parameters**
+
+|          Name | Required |  Type   | Description                                                                                                                                                         |
+| -------------:|:--------:|:-------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     `product` | required | string  | The product for which to perform the action. <br/><br/> Supported values: `publish` or `analyze`.                                                                   |
+| `atPeriodEnd` | optional | boolean | Default is `true`. Specifies if the subscription should be deleted now or when the subscription is due to end. <br/><br/> *Common use case is to pass `true` since we want to let the customers use the full period they paid for.* <br/>*Should only pass `false` (i.e. cancel the subscription right now) when a Stripe customer switches to iOS/Android.)* |
+|    `cta` | optional | string  | Can be used for tracking purpose - [Read more](https://github.com/bufferapp/README/tree/master/runbooks/data-tracking)          |
+
+**Response**
+
+```
+{
+    "success": true
+}
+
+or any implemented error from https://buffer.com/developers/api/errors
+
+{
+    "code": 1000,
+    "error": "An error message"
+}
+```
+
+
