@@ -33,13 +33,6 @@ Notifications API is an independent module which you can integrate your workflow
   - Perform cleanup operations: resource releasing.
 ## Examples
 
-| PDF                                                                   | Type        | Marker                                                                                                 | Nougat                                                                                                 |
-|-----------------------------------------------------------------------|-------------|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| [Think Python](https://greenteapress.com/thinkpython/thinkpython.pdf) | Textbook    | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/marker/thinkpython.md)         | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/nougat/thinkpython.md)         |
-| [Think OS](https://greenteapress.com/thinkos/thinkos.pdf)             | Textbook    | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/marker/thinkos.md)             | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/nougat/thinkos.md)             |
-| [Switch Transformers](https://arxiv.org/pdf/2101.03961.pdf)           | arXiv paper | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/marker/switch_transformers.md) | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/nougat/switch_transformers.md) |
-| [Multi-column CNN](https://arxiv.org/pdf/1804.07821.pdf)              | arXiv paper | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/marker/multicolcnn.md)         | [View](https://github.com/VikParuchuri/marker/blob/master/data/examples/nougat/multicolcnn.md)         |
-
 
 
 # Installation
@@ -185,7 +178,27 @@ These endpoints allows you to interact with your chosen processor and media stor
         "job_id": "s3-job-123"
       }
   ```
-
+  Config for FaceRecognition
+  ```
+        {
+          'asset_id': 'asset_id',
+          'model': 'VGG-Face',
+          'backend': 'opencv',
+          'frame_difference': 15,
+          'identification_treshold': 1.2,
+          'action': 'process',
+        }
+  ```
+  Config for ObjectDetection
+  ```
+        {
+          'items': [],
+          'detection_model': 'yolov8',
+          'frame_difference': 15,
+          'box_treshold': 0.5,
+          'text_treshold': 0.5,
+        }
+  ```
 
 
 **Parameters**
