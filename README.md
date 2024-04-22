@@ -256,31 +256,31 @@ ___
 |     `bucket` | required | string  | The name of the bucket you want to process.                                                                   |
 |     `path`   | required | string  | The path where the  bucket is stored inside datacore.  |
 |     `status` | optional | string  | Status of the bucket object. Options include "Pending", "Processing"|
-|     `cron`   | optional | string  | Interval, specifc date... you want to trigger to check the datacore |
+|     `cron`   | optional | string  | Interval, specifc date... you want to trigger to scan buckets from Datacore  |
 |     `config` | optional | dict    | Processor configurations you want to pass. Options include "AutoTranslation", "FacialRecognition", "ObjectDetection"   |
 | `first_time` | optional | bool    | Is the bucket being processed for the first time? | 
 |  `last_time` | optional | string  | When was the bucket last time processed? | 
-|     `job_id` | optional | bool    | Unique identifier for the task | 
+|     `job_id` | optional | bool    | Unique identifier of the task | 
 
 **Responses**
   ***Success***
-      ```
-        {"message": f"S3 Bucket added", 'data': s3_bucket}
-      }
-      ```
+```
+  {"message": f"S3 Bucket added", 'data': s3_bucket}
+}
+```
   ***Errors***
-      ```
-       {
-        "detail": [
-          {
-            "loc": [
-              "string",
-              0
-            ],
-            "msg": "Invalid cron expression",
-            "type": "string"
-            }
-          ]
+  ```
+   {
+    "detail": [
+      {
+        "loc": [
+          "string",
+          0
+        ],
+        "msg": "Invalid cron expression",
+        "type": "string"
         }
-      }
-      ```
+      ]
+    }
+  }
+  ```
